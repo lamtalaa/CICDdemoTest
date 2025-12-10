@@ -1,0 +1,31 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Run unit tests"
+  lane :tests do
+    run_tests(
+      scheme: "CICDdemoTest",
+      destination: "platform=iOS Simulator,name=iPhone 16,OS=latest"
+    )
+  end
+
+  desc "Build debug"
+  lane :build_debug do
+    build_app(
+      scheme: "CICDdemoTest",
+      export_method: "development"
+    )
+  end
+
+  desc "CI: Tests + Build"
+  lane :ci do
+    run_tests(
+      scheme: "CICDdemoTest",
+      destination: "platform=iOS Simulator,name=iPhone 16,OS=latest"
+    )
+    build_app(
+      scheme: "CICDdemoTest",
+      export_method: "development"
+    )
+  end
+end

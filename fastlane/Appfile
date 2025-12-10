@@ -1,0 +1,2 @@
+app_identifier("com.lamtalaa.CICDdemoTesta") # doesn't matter for build-only CI
+apple_id("ysnlmtl3@icloud.com")              # also not used during CI test/build
